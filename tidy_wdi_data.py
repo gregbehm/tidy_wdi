@@ -1,10 +1,4 @@
-
-# coding: utf-8
-
-# ### World Development Indicators
-
-# In[1]:
-
+# World Development Indicators
 
 from collections import OrderedDict
 import contextlib
@@ -13,11 +7,7 @@ import pandas as pd
 import requests
 import zipfile
 
-
-# In[2]:
-
-
-# 
+#
 # http://data.worldbank.org/data-catalog/world-development-indicators
 #
 # The World Development Indicators are the primary World Bank collection
@@ -28,10 +18,6 @@ import zipfile
 # global development data available, and includes national, regional and
 # global estimates.
 #
-
-
-# In[3]:
-
 
 # Download and extract the WDI files
 zfilename = 'WDI_csv.zip'
@@ -46,39 +32,19 @@ if not os.path.exists(zfilename):
         with zipfile.ZipFile(zfilename) as z:
             z.extractall()
 
-
-# In[4]:
-
-
 # Read the full data file into a data frame, dropping empty columns
 df = pd.read_csv('WDIData.csv')
 df.dropna(how='all', axis=1, inplace=True)
 
-
-# In[5]:
-
-
 print(df.columns)
-
-
-# In[6]:
-
 
 # Tidy up: Melt all year columns into year and value columns
 id_vars = ['Country Name', 'Country Code', 'Indicator Name', 'Indicator Code']
 df = pd.melt(frame=df, id_vars=id_vars, var_name='Year')
 df.dropna(inplace=True)
 
-
-# In[7]:
-
-
 # Let's peek at what we've got
 print(df.head())
-
-
-# In[8]:
-
 
 # Split each indicator into a separate data frame and save to CSV
 with contextlib.suppress(FileExistsError):
@@ -100,4 +66,3 @@ for indicator, frame in df.groupby(['Indicator Name', 'Indicator Code']):
 
 # Save indicator file list to CSV
 pd.DataFrame(filelist).to_csv('FileList.csv', index=False)
-
