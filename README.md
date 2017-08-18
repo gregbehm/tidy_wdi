@@ -17,8 +17,8 @@ meta-data files and the full data file, WDIData.csv. The Excel archive
 contains one file, WDIEXCEL.xlsx, with sheets corresponding to the same
 meta-data and data tables mentioned above.
 
-*The WDI data table is messy, containing data for all 1500+ indicators,
-as well as data spanning multiple observations (years) in each row.* 
+**The WDI data table is messy, containing data for all 1500+ indicators,
+as well as data spanning multiple observations (years) in each row.** 
 
 ## Tidy the data
 
