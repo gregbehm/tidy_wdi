@@ -3,7 +3,7 @@
 The World Development Indicators are the primary World Bank collection
 of development indicators, compiled from officially-recognized
 international sources. These data sets present the most current and accurate
-global development data available, and includes national, regional and
+global development data available, and include national, regional and
 global estimates.
 
 More information about the WDI is available at:  
