@@ -1,4 +1,4 @@
-# World Development Indicators
+# Tidy the World Development Indicators
 
 from collections import OrderedDict
 import contextlib
